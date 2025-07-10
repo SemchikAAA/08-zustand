@@ -1,4 +1,16 @@
+import { Metadata } from "next";
 import css from "./Home.module.css";
+
+export const metadata: Metadata = {
+  title: "NoteHub",
+  description: "All your notes in a convenient web application",
+  openGraph: {
+    title: "NoteHub",
+    description: "All your notes in a convenient web application",
+    url: "http://localhost:3000/",
+    images: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+  },
+};
 
 export default function NotFound() {
   return (

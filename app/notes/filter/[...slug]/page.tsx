@@ -1,11 +1,12 @@
 import { fetchNotes } from "@/lib/api";
 import NotesClient from "./Notes.client";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
   return {
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: Props) {
     openGraph: {
       title: `Notes ${slug[0]}`,
       description: `Notes sorted by tag ${slug[0]}`,
-      url: "http://localhost:3000/",
+      url: `http://localhost:3000/notes/filter/${slug[0]}`,
       images: [
         {
           url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",

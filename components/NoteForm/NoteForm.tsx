@@ -35,7 +35,6 @@ export default function NoteForm() {
     mutationFn: createNote,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["notes"] });
-      setErrors({});
       clearDraft();
       router.push("/notes/filter/all");
     },
@@ -123,7 +122,7 @@ export default function NoteForm() {
         <button
           type="button"
           className={css.cancelButton}
-          onClick={() => router.push("/notes/filter/all")}
+          onClick={router.back}
         >
           Cancel
         </button>

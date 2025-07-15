@@ -8,7 +8,6 @@ import css from "./NotesPage.module.css";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
-import NoteForm from "@/components/NoteForm/NoteForm";
 import Link from "next/link";
 
 type NotesClientProps = {
@@ -61,8 +60,6 @@ export default function NotesClient({
       </div>
 
       {data && data.notes.length > 0 && <NoteList notes={data.notes} />}
-
-      <NoteForm />
     </div>
   );
 }

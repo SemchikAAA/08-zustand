@@ -57,13 +57,17 @@ export default function NoteForm() {
         abortEarly: false,
       })) as NewNoteData;
       mutate(validatedData);
-    } catch (validationError: any) {
+    } catch (error) {
       const validationErrors: Partial<Record<keyof NewNoteData, string>> = {};
-      if (validationError.inner) {
-        for (const err of validationError.inner) {
-          validationErrors[err.path as keyof NewNoteData] = err.message;
+
+      if (error instanceof Yup.ValidationError) {
+        for (const err of error.inner) {
+          if (err.path) {
+            validationErrors[err.path as keyof NewNoteData] = err.message;
+          }
         }
       }
+
       setErrors(validationErrors);
     }
   };

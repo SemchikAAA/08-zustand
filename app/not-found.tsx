@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import css from "./Home.module.css";
 
 export const metadata: Metadata = {
-  title: "NoteHub",
-  description: "All your notes in a convenient web application",
+  title: "NoteHub Error",
+  description: "Sorry, page not found",
   openGraph: {
-    title: "NoteHub",
-    description: "All your notes in a convenient web application",
+    title: "NoteHub Error",
+    description: "Sorry, page not found",
     url: "http://localhost:3000/",
     images: [
       {
